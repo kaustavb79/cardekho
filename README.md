@@ -9,3 +9,5 @@ Used car data scraping from https://www.cardekho.com site...
 - Available data extracted as on 15th April,2022.
 
 # Python version : 3.7
+
+![plot](screenshot.png)
