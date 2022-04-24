@@ -12,34 +12,35 @@ if __name__ == "__main__":
 	"""
 		Get all the links of used cars for the given location(s)
 	"""
-	filename = "./output/data_v2/car_dekho_intermediate_v2.csv"
-	# for loc in locs.values:
-	#     with open (filename, 'a') as csvfile:
-	#         print("fetching: ",loc[0])
-	#         data = get_used_car_intermediate_data(loc[0])
-	#         # print(data)
-	#         headers = list(data.keys())
-	#         writer = csv.DictWriter(csvfile, delimiter=',', lineterminator='\n',fieldnames=headers)
-	#         if csvfile.tell() == 0:
-	#             writer.writeheader()
-	#         modif_data = []
-	#         for count in range(len(data[headers[0]])):
-	#             modif_data.append({
-	#                 headers[0]:data[headers[0]][count],
-	#                 headers[1]:data[headers[1]][count],
-	#                 headers[2]:data[headers[2]][count],
-	#                 headers[3]:data[headers[3]][count],
-	#                 headers[4]:data[headers[4]][count],
-	#                 headers[5]:data[headers[5]][count],
-	#                 headers[6]:data[headers[6]][count],
-	#                 headers[7]:data[headers[7]][count],
-	#                 headers[8]:data[headers[8]][count],
-	#                 headers[9]:data[headers[9]][count],
-	#                 headers[10]:data[headers[10]][count],
-	#                 headers[11]:data[headers[11]][count],
-	#             })
-	#         for x in modif_data:
-	#             writer.writerow(x)
+	filename = "./output/data_v3/car_dekho_intermediate_v2.csv"
+	for loc in locs.values:
+	    with open (filename, 'a') as csvfile:
+	        print("fetching: ",loc[0])
+	        data = get_used_car_intermediate_data(loc[0])
+	        # print(data)
+	        headers = list(data.keys())
+	        writer = csv.DictWriter(csvfile, delimiter=',', lineterminator='\n',fieldnames=headers)
+	        if csvfile.tell() == 0:
+	            writer.writeheader()
+	        modif_data = []
+	        for count in range(len(data[headers[0]])):
+	            modif_data.append({
+	                headers[0]:data[headers[0]][count],
+	                headers[1]:data[headers[1]][count],
+	                headers[2]:data[headers[2]][count],
+	                headers[3]:data[headers[3]][count],
+	                headers[4]:data[headers[4]][count],
+	                headers[5]:data[headers[5]][count],
+	                headers[6]:data[headers[6]][count],
+	                headers[7]:data[headers[7]][count],
+	                headers[8]:data[headers[8]][count],
+	                headers[9]:data[headers[9]][count],
+	                headers[10]:data[headers[10]][count],
+	                headers[11]:data[headers[11]][count],
+	                headers[12]:data[headers[12]][count],
+	            })
+	        for x in modif_data:
+	            writer.writerow(x)
 
 	"""
 		Scrape all the data from the links in the car_dekho_intermediate.csv file and update the DataFrame
@@ -60,4 +61,4 @@ if __name__ == "__main__":
 	    # print("*"*50)
 	    row.update(res)
 
-	pd.DataFrame(ch).to_csv("./output/data_v2/cardekho_complete_data.csv")
+	pd.DataFrame(ch).to_csv("./output/data_v3/cardekho_complete_data.csv")
