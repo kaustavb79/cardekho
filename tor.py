@@ -3,6 +3,8 @@ import time
 from stem import Signal
 from stem.control import Controller
 
+unhashed_pwd = ""
+
 def get_current_ip():
     session = requests.session()
 
@@ -21,5 +23,5 @@ def get_current_ip():
 
 def renew_tor_ip():
     with Controller.from_port(port = 9051) as controller:
-        controller.authenticate(password="your_unhashed_password")
+        controller.authenticate(password=unhashed_pwd)
         controller.signal(Signal.NEWNYM)

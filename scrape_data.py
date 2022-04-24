@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 import requests
 import urllib.parse
 import time
@@ -35,15 +36,16 @@ def get_used_car_intermediate_data(location):
                 else:
                     data.setdefault("main_page_link",list()).append("https://www.cardekho.com"+cars['vlink'])
                 data.setdefault("isAssured",list()).append(cars['isAssured'])
-                data.setdefault("car_name",list()).append(cars['vid'])    
-                data.setdefault("model",list()).append(cars['oem'])    
-                data.setdefault("brand",list()).append(cars['carVariant'])
+                data.setdefault("car_name",list()).append(cars['dvn'])    
+                data.setdefault("model",list()).append(cars['model'].strip(cars['oem']).strip())    
+                data.setdefault("brand",list()).append(cars['oem'])
                 data.setdefault("location",list()).append(cars['city'])
                 data.setdefault("seller_type",list()).append(cars['utype'])
                 data.setdefault("selling_location",list()).append(cars['seller_location']['address'])
                 data.setdefault("transmission_type",list()).append(cars['transmissionType'])
                 data.setdefault("km_driven",list()).append(cars['km'])
-                data.setdefault("variant",list()).append(cars['ft'])
+                data.setdefault("car_variant",list()).append(cars['carVariant'])
+                data.setdefault("fuel_type",list()).append(cars['ft'])
                 data.setdefault("selling_price",list()).append(float(cars['p_numeric']))
             pagefrom += 20
             # print(json.dumps(data,indent=4))
