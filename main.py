@@ -51,7 +51,7 @@ if __name__ == "__main__":
 	print(get_current_ip())
 	for count,row in enumerate(ch):
 	    if count % 300 == 0 and count > 0:            
-	        renew_tor_ip()
+	        # renew_tor_ip()
 	        print(get_current_ip())
 	        time.sleep(3)
 	    print(count," -- ",row['main_page_link'])
